@@ -1,5 +1,4 @@
-from machine import Timer  
-from time import time, sleep
+
 import ubluetooth
 from micropython import const
 _IRQ_CENTRAL_CONNECT = const(1)
@@ -23,13 +22,11 @@ class BLE():
 
     def connected(self,data):
         self.conHandle = data[0]
-        self.send("Echo On")
-
 
     def disconnected(self):        
         pass
 
-
+# Interrupt handler
     def ble_irq(self, event, data):
         
 # Someone wants to talk to us       
